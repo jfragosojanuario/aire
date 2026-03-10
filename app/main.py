@@ -86,7 +86,7 @@ def load_model() -> SentenceTransformer:
 
 @st.cache_data(show_spinner=False)
 def load_df_and_embeddings() -> Tuple[pd.DataFrame, np.ndarray]:
-    df = pd.read_excel(REPO_ROOT / "database" / "Data AIRE project_V0.xlsx")
+    df = pd.read_excel(REPO_ROOT / "database" / "Data AIRE project.xlsx")
     df["combined_text_df"] = (
         df["Domain"].fillna("")
         + " "
@@ -484,7 +484,7 @@ def main():
         st.write(
             "- Requires OPENAI_API_KEY in .env at repo root.\n"
             "- Embeddings/model and dataset are cached for faster subsequent runs.\n"
-            "- Dataset path: database/Data AIRE project_V0.xlsx"
+            "- Dataset path: database/Data AIRE project.xlsx"
         )
 
 

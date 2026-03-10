@@ -55,10 +55,10 @@ except Exception:
 
 # Load the Excel data, making sure it exists
 try:
-    df = pd.read_excel("../database/Data AIRE project_V0.xlsx")
-    print("Dataset 'Data AIRE project_V0.xlsx' loaded successfully.")
+    df = pd.read_excel("../database/Data AIRE project.xlsx")
+    print("Dataset 'Data AIRE project.xlsx' loaded successfully.")
 except FileNotFoundError:
-    print("Error: '../database/Data AIRE project_V0.xlsx' not found.")
+    print("Error: '../database/Data AIRE project.xlsx' not found.")
     raise # Re-raise to stop execution if file is missing
 
 # Create the combined_text_df column, handling potential NaN values

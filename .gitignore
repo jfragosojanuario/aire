@@ -4,6 +4,6 @@ __pycache__/
 *.pyc
 *.pyo
 .ipynb_checkpoints/
-database/Data AIRE project.xlsx
+database/Data AIRE project_V0.xlsx
 scripts/cost_estimationv2.py
 app/.streamlit/secrets.toml
