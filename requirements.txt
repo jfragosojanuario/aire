@@ -5,6 +5,7 @@ pandas
 sentence-transformers
 scikit-learn
 python-dotenv
-streamlit
+streamlit==1.41.1
+altair<5
 # Optional: only if running in Google Colab
 # google-colab
