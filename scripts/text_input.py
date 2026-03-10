@@ -22,13 +22,18 @@ except Exception as e:
   OpenAI = None
   _HAS_OPENAI_V1 = False
 
-if _HAS_OPENAI_V1:
-  # v1 client reads API key from env by default
-  client = OpenAI()
-else:
-  # Legacy SDK
-  import openai as openai_legacy  # type: ignore
-  openai_legacy.api_key = OPENAI_API_KEY
+client = None  # initialised lazily on first use
+
+def _get_client():
+  global client
+  if client is None:
+    key = os.environ.get("OPENAI_API_KEY") or OPENAI_API_KEY
+    if _HAS_OPENAI_V1:
+      client = OpenAI(api_key=key)
+    else:
+      import openai as openai_legacy  # type: ignore
+      openai_legacy.api_key = key
+  return client
 
 
 
@@ -44,7 +49,7 @@ def llm_process_json(prompt):
   for attempt in range(1, max_attempts + 1):
     try:
       if _HAS_OPENAI_V1:
-        res = client.chat.completions.create(
+        res = _get_client().chat.completions.create(
           model="gpt-4o-mini",
           messages=[
             {"role": "user", "content": prompt}
