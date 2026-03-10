@@ -86,7 +86,7 @@ def load_model() -> SentenceTransformer:
 
 @st.cache_data(show_spinner=False)
 def load_df_and_embeddings() -> Tuple[pd.DataFrame, np.ndarray]:
-    df = pd.read_excel(REPO_ROOT / "database" / "Data AIRE pROJECT.xlsx")
+    df = pd.read_excel(REPO_ROOT / "database" / "Data AIRE project.xlsx")
     df["combined_text_df"] = (
         df["Domain"].fillna("")
         + " "
