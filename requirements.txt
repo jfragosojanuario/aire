@@ -1,7 +1,8 @@
-﻿openai==2.2.0
+openai==2.2.0
 rapidfuzz
 numpy
 pandas
+openpyxl
 sentence-transformers
 scikit-learn
 python-dotenv
