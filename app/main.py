@@ -15,10 +15,14 @@ REPO_ROOT = Path(__file__).resolve().parents[1]
 
 # Prefer Streamlit secrets (production), fall back to .env (local dev)
 try:
-    os.environ.setdefault("OPENAI_API_KEY", st.secrets["OPENAI_API_KEY"])
+    os.environ["OPENAI_API_KEY"] = st.secrets["OPENAI_API_KEY"]
 except Exception:
     from dotenv import load_dotenv
     load_dotenv(REPO_ROOT / ".env")
+
+if not os.environ.get("OPENAI_API_KEY"):
+    st.error("OPENAI_API_KEY is not set. Add it to Streamlit secrets (cloud) or .env (local).")
+    st.stop()
 
 # Ensure repo root is importable (so 'scripts' can be imported)
 if str(REPO_ROOT) not in sys.path:

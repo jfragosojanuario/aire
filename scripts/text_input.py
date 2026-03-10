@@ -26,8 +26,8 @@ client = None  # initialised lazily on first use
 
 def _get_client():
   global client
-  if client is None:
-    key = os.environ.get("OPENAI_API_KEY") or OPENAI_API_KEY
+  key = os.environ.get("OPENAI_API_KEY")  # always re-read from env
+  if client is None or not key:
     if _HAS_OPENAI_V1:
       client = OpenAI(api_key=key)
     else:
