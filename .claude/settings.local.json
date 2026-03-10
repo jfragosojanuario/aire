@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(find . -not -path \"./.venv/*\" -type f -name \"*.py\" | xargs grep -l \"^import\\\\|^from\" | head -20)"
+    ]
+  }
+}

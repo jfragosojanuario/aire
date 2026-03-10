@@ -1,0 +1,10 @@
+﻿openai==2.2.0
+rapidfuzz
+numpy
+pandas
+sentence-transformers
+scikit-learn
+python-dotenv
+streamlit
+# Optional: only if running in Google Colab
+# google-colab
