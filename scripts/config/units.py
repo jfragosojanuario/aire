@@ -3,7 +3,7 @@ import re
 # Raw unit alternatives (linear and weight)
 LINEAR_UNIT_ALTERNATIVES_RAW = (
     'mm|cm|dm|m|km|'
-    'metro|metros|'
+    'metro|metros|meters|'
     'centimetro|centimetros|centímetro|centímetros|'
     'milimetro|milimetros|milímetro|milímetros|'
     'inch|in|foot|ft|yard|yd'
@@ -37,6 +37,7 @@ UNIT_NORMALIZATION = {
     # metros
     'metro': 'm',
     'metros': 'm',
+    'meters': 'm',
 
     # centimetros
     'centimetro': 'cm',
